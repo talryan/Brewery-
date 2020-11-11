@@ -16,16 +16,11 @@ class Api
 
     def create_brewery
         self.fetch_brewery.collect do |index|
-          Brewery.new(index["name"],index["brewery_type"], index["city"],index ["website_url"])
+          Brewery.new(index["name"],index["city"], index["brewery_type"],index ["website_url"])
          end 
     end
 
 
 end
-
-# api =Api.new("Ohio")
-#      binding.pry
-#      "let us pry"
-
 
 
