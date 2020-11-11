@@ -7,13 +7,13 @@ class Api
    end
 
     def fetch_brewery
-        url = "https://api.openbrewerydb.org/breweries?by_state=#{query}"
+        url = "https://api.openbrewerydb.org/breweries?by_state=#{@query}"
         uri = URI(url)
         response = Net::HTTP.get(uri)
         hash = JSON.parse(response)
         hash 
     end
-    
+
     def create_brewery
         self.fetch_brewery.collect do |index|
           Brewery.new(index["name"],index["brewery_type"], index["city"],index ["website_url"])

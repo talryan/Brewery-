@@ -1,9 +1,9 @@
 class Brewery
 @@all = []
-attr_accessor :name, :type, :city, :website_url
+attr_accessor  :name, :type, :city, :website_url
 
     def initialize(name, type, city, website_url)
-        
+      
         @name = name
         @type = type
         @city = city

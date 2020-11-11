@@ -3,6 +3,8 @@
 require 'pry'
 require 'httparty'
 require 'json'
+require 'open-uri'
+
 
 #Require Necessary Files 
 
