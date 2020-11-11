@@ -13,10 +13,11 @@ class Api
         hash = JSON.parse(response)
         hash 
     end
+    
     def create_brewery
         self.fetch_brewery.collect do |index|
-          Brewery.new(index["name"],index["brewery_type"])
-        end 
+          Brewery.new(index["name"],index["brewery_type"], index["city"],index ["website_url"])
+         end 
     end
 
 
