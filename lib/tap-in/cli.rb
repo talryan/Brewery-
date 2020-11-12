@@ -2,27 +2,15 @@ class Cli
 # @@array_states = ["Alaska", "Alabama", "Arkansas", "Arizona", "California", "Colorado", "Connecticut","Delaware", "Florida", "Georgia", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts", "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire", "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon" "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Vermont", "Washington", "Wisconsin", "West Virginia","Wyoming"]
     def start
 
-          puts " ########    ###    ########    #### ##    ## "
-          puts "   ##      ## ##   ##     ##     ##  ###   ## "
-          puts "   ##     ##   ##  ##     ##     ##  ####  ## "
-          puts "   ##    ##     ## ########      ##  ## ## ## "
-          puts "   ##    ######### ##            ##  ##  #### "
-          puts "   ##    ##     ## ##            ##  ##   ### "
-          puts "   ##    ##     ## ##           #### ##    ## "
-          
-                        puts" .   *   ..  . *  * "
-                        puts"  * @()Ooc()*   o  . "
-                        puts"   (Q@*0CG*O()  ___"
-                        puts " |\_________/|/ _ \ "
-                        puts " |  |  |  |  | / | | "
-                        puts " |  |  |  |  | | | | "
-                        puts " |  |  |  |  | | | | "
-                        puts " |  |  |  |  | | | | "
-                        puts " |  |  |  |  | | | | "
-                        puts " |  |  |  |  | \_| | "
-                        puts " |  |  |  |  |\___/ "
-                        puts " |\_|__|__|_/| "
-                        puts "  \_________/"
+            puts " ########    ###    ########    #### ##    ## "
+            puts "   ##      ## ##   ##     ##     ##  ###   ## "
+            puts "   ##     ##   ##  ##     ##     ##  ####  ## "
+            puts "   ##    ##     ## ########      ##  ## ## ## "
+            puts "   ##    ######### ##            ##  ##  #### "
+            puts "   ##    ##     ## ##            ##  ##   ### "
+            puts "   ##    ##     ## ##           #### ##    ## "
+
+            puts "Your California roadtrip brewery locator"
 
 
             Api.fetch_brewery
@@ -35,23 +23,39 @@ class Cli
     
 
       def title_screen  
-            puts "Would you like to tap in to list of California breweries?"       
+            puts "Would you like to tap in to our list of reccommended breweries?" 
+            puts "Enter 'yes' if you would like to proceed."      
             user_input = gets.strip.downcase
-            if user_input == "yes" || user_input == "y"
-                  puts "Take a look at what California has to offer!"
-                  puts "Please select a brewery you'd like to know more about! "
+            if user_input == "yes"
+                  puts " "
+                  puts " "
+                  puts " "
+                  puts "Take a look at this un-beer-ieveable selection!"
+                  puts " "
                   sleep(2)
                   Brewery.display_list_of_breweries
+                  puts " "
+                  sleep(1)
+                  puts "Please select a brewery you'd like to know more about! "
+                  puts "Enter a number that corresponds to the brewery name."
                   self.brewery_select
-                  title_screen
-            elsif puts "Looks like you are already drunk, do you really need to visit a brewery right now? Try again."
-                  title_screen
+             
+                  # title_screen
+            elsif user_input != "yes" || user_input != "no"
+                  puts "Not a valid input."
+                  puts "Try again."
+                  puts " "
+                  puts " "
+                  # title_screen
             else user_input == "no"
                   puts "Hmm... Looks like you are not interested in looking at any breweries."
                   sleep(2)
                   puts "Thank brew very much! Have a hoppy day!"
             end
+      
       end
+
+      #Create method to save bookmarked breweries
 
 
 
