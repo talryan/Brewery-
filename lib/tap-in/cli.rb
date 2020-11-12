@@ -9,12 +9,21 @@ class Cli
           puts "   ##    ######### ##            ##  ##  #### "
           puts "   ##    ##     ## ##            ##  ##   ### "
           puts "   ##    ##     ## ##           #### ##    ## "
-                
-          puts "                  .~~~~. "
-          puts "                  i====i_"
-          puts "                  |cccc|_) "
-          puts "                  |cccc| "
-          puts "                  `-==-' "
+          
+                        puts" .   *   ..  . *  * "
+                        puts"  * @()Ooc()*   o  . "
+                        puts"   (Q@*0CG*O()  ___"
+                        puts " |\_________/|/ _ \ "
+                        puts " |  |  |  |  | / | | "
+                        puts " |  |  |  |  | | | | "
+                        puts " |  |  |  |  | | | | "
+                        puts " |  |  |  |  | | | | "
+                        puts " |  |  |  |  | | | | "
+                        puts " |  |  |  |  | \_| | "
+                        puts " |  |  |  |  |\___/ "
+                        puts " |\_|__|__|_/| "
+                        puts "  \_________/"
+
 
             Api.fetch_brewery
             title_screen
@@ -26,7 +35,7 @@ class Cli
     
 
       def title_screen  
-            puts "Would you like to tap into a list of California breweries?"       
+            puts "Would you like to tap in to list of California breweries?"       
             user_input = gets.strip.downcase
             if user_input == "yes" || user_input == "y"
                   puts "Take a look at what California has to offer!"
@@ -35,7 +44,7 @@ class Cli
                   Brewery.display_list_of_breweries
                   self.brewery_select
                   title_screen
-            elsif puts "Looks like you are already drunk, do you really need to visit a brewery right now?"
+            elsif puts "Looks like you are already drunk, do you really need to visit a brewery right now? Try again."
                   title_screen
             else user_input == "no"
                   puts "Hmm... Looks like you are not interested in looking at any breweries."
@@ -56,7 +65,7 @@ class Cli
             index = gets.strip.to_i - 1
             max_limit = Brewery.all.length - 1
             until index.between?(0,max_limit)
-                  puts "Sorry that is an invalid choice"
+                  puts "Uh oh, that brew isn't an option."
                   index = gets.strip.to_i - 1
             end
             brewery_instance = Brewery.all[index]
