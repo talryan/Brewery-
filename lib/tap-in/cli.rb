@@ -40,17 +40,22 @@ class Cli
                   puts "Enter a number that corresponds to the brewery name."
                   self.brewery_select
              
-                  # title_screen
-            elsif user_input != "yes" || user_input != "no"
+                  title_screen
+            elsif user_input == "no"
+                  puts "Hmm... Looks like you are not interested in looking at any breweries."
+                  sleep(2)
+                  puts "Thank brew very much! Have a hoppy day!"
+
+            else user_input != "yes" || user_input != "no"
                   puts "Not a valid input."
                   puts "Try again."
                   puts " "
                   puts " "
-                  # title_screen
-            else user_input == "no"
-                  puts "Hmm... Looks like you are not interested in looking at any breweries."
-                  sleep(2)
-                  puts "Thank brew very much! Have a hoppy day!"
+                  title_screen
+            # else user_input == "no"
+            #       puts "Hmm... Looks like you are not interested in looking at any breweries."
+            #       sleep(2)
+            #       puts "Thank brew very much! Have a hoppy day!"
             end
       
       end
