@@ -1,8 +1,9 @@
+require 'pry'
 class Brewery
 
     attr_accessor :name, :city, :brewery_type, :website_url
     @@all = []
-    @@save_brewery
+    @@save_brewery = []
     def initialize(name, city, brewery_type, website_url)
       
         @name = name
@@ -29,18 +30,11 @@ class Brewery
         puts "\nCity: " + brewery.city
         puts "\nType: " + brewery.brewery_type
         puts "\nWebsite URL: " + brewery.website_url
-
-
-     
     end
 
-    # def self.save_brewery
-    #     puts "Would you like to bookmark this brewery to your travel plans?"
-    #     if user_input == "yes"
-    #         puts "This has been bookmarked."
-    #     else user_input == "no"
-    #         puts "No "
-    # end
 
 
+    def self.save_brewery(bookmark)
+       @@save_brewery << bookmark
+    end
 end

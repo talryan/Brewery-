@@ -1,5 +1,5 @@
 class Cli
-      @@bookmark =[]
+      
     
       def start
 
@@ -43,8 +43,6 @@ class Cli
                   self.brewery_select
                   sleep(2)
                   recursion
-                  # puts "Here are the breweries you viewed!"
-                  # puts @@bookmark
             elsif user_input == "no"
                   puts "Hmm... Looks like you are not interested in looking at any breweries."
                   sleep(2)
@@ -62,7 +60,7 @@ class Cli
       end
 
 
-      def brewery_select
+      def brewery_select()
             index = gets.strip.to_i - 1
             max_limit = Brewery.all.length - 1
             until index.between?(0,max_limit)
@@ -71,7 +69,28 @@ class Cli
             end
             brewery_instance = Brewery.all[index]
             Brewery.display_brewery_details(brewery_instance)
+            bookmark_brewery(brewery_instance)
       end
+
+      def bookmark_brewery(brewery_instance)
+            puts "1. Bookmark this brewery to your favorites."
+            puts "2. Return to the list of breweries."
+            input = gets.strip.to_i
+            until input.between?(0,2)
+                puts "Sorry that is an invalid choice - did you pick a number from above?"
+                input = gets.strip.to_i
+            end
+            if input == 1
+                  Brewery.save_brewery(brewery_instance)
+            else input == 2
+                  sleep(1)
+                 recursion
+            end
+      end
+      def display_bookmarked_breweries
+            
+      end
+
 end
 
 
