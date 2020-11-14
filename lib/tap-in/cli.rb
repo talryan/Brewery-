@@ -47,7 +47,7 @@ class Cli
                   exit_mission 
             else user_input != "yes" || user_input != "no"
                   puts " "
-                  puts "Uh oh, looks like you may already be drinking. Try again."
+                  puts "Uh oh, looks like you may already be drinking."
                   puts "Try again."
                   puts " "
                   main_menu
@@ -71,20 +71,26 @@ class Cli
             puts "1. Bookmark this brewery to your itinerary."
             puts "2. Return to the list of breweries."
             puts "3. View bookmarked breweries."
-            input = gets.strip.to_i 
-            until input.between?(0,3)
-                puts "Uh oh, looks like you may already be drinking. This is not a valid choice. Try again."
-                input = gets.strip.to_i 
+            puts "4. Exit"
+            user_input = gets.strip.to_i 
+            until user_input.between?(0,4)
+                puts "Uh oh, looks like you may already be drinking. Try again."
+                user_input = gets.strip.to_i 
             end
-            if input == 1
+            if user_input == 1
                   Brewery.bookmark_brewery(brewery_instance)
                   puts "This brewery has been bookmarked!"
                   recursion
-            elsif input == 2
+            elsif user_input == 2
                   sleep(1)
                  recursion
-            else input == 3
+            elsif user_input == 3
                   bookmark_breweries_prompt
+            elsif user_input == 4
+                  exit_mission
+            else 
+                  puts "Uh oh, looks like you may already be drinking. Try again."
+                  bookmark_breweries_menu(brewery_instance)
             end
       end
 
@@ -99,7 +105,6 @@ class Cli
       end
 
       def exit_mission
-            puts "Hmm... It appears you are no longer interested in viewing breweries."
             puts "Thank brew very much! Have a hoppy day!"
             exit
       end
