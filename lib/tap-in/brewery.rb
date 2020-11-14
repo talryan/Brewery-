@@ -3,7 +3,7 @@ class Brewery
 
     attr_accessor :name, :city, :brewery_type, :website_url
     @@all = []
-    @@save_brewery = []
+    @@bookmark_brewery = []
     def initialize(name, city, brewery_type, website_url)
       
         @name = name
@@ -18,8 +18,8 @@ class Brewery
     end
 
     def self.list_of_breweries
-        Brewery.all.each_with_index do |brewery, i, city|
-           puts "#{i+1}. #{brewery.name} - #{brewery.city}"
+        Brewery.all.each_with_index do |brewery, index, city|
+           puts "#{index+1}. #{brewery.name} - #{brewery.city}"
         end
     end
 
@@ -32,9 +32,17 @@ class Brewery
         puts "\nWebsite URL: " + brewery.website_url
     end
 
+    def self.bookmark_brewery(brewery)
+       @@bookmark_brewery << brewery
+    end
 
+    def self.view_bookmark_brewery
+        @@bookmark_brewery
+    end
 
-    def self.save_brewery(bookmark)
-       @@save_brewery << bookmark
+    def self.bookmark_breweries_print
+        self.view_bookmark_brewery.each_with_index.collect do |brewery, index, city|
+           puts  "#{index+1}. #{brewery.name} - #{brewery.city}" 
+        end
     end
 end
