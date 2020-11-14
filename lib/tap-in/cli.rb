@@ -41,12 +41,13 @@ class Cli
                   self.brewery_selection
                   sleep(2)
             elsif user_input == "no"
-                  puts "Hmm... Looks like you are not interested in looking at any breweries."
                   sleep(2)
-                  puts "Thank brew very much! Have a hoppy day!"
+                  puts " "
+                  bookmark_breweries_prompt
+                  exit_mission 
             else user_input != "yes" || user_input != "no"
                   puts " "
-                  puts "Not a valid input."
+                  puts "Uh oh, looks like you may already be drinking. Try again."
                   puts "Try again."
                   puts " "
                   main_menu
@@ -57,7 +58,7 @@ class Cli
             index = gets.strip.to_i - 1
             max_limit = Brewery.all.length - 1
             until index.between?(0,max_limit)
-                  puts "Uh oh, that brewery isn't an option."
+                  puts "Uh oh, looks like you may already be drinking. This is not a valid choice. Try again."
                   index = gets.strip.to_i - 1
             end
             brewery_instance = Brewery.all[index]
@@ -67,12 +68,12 @@ class Cli
 
       def bookmark_breweries_menu(brewery_instance)
             puts " "
-            puts "1. Bookmark this brewery to your favorites."
+            puts "1. Bookmark this brewery to your itinerary."
             puts "2. Return to the list of breweries."
             puts "3. View bookmarked breweries."
             input = gets.strip.to_i 
             until input.between?(0,3)
-                puts "Uh oh, that's not a valid choice. Try again."
+                puts "Uh oh, looks like you may already be drinking. This is not a valid choice. Try again."
                 input = gets.strip.to_i 
             end
             if input == 1
@@ -94,7 +95,13 @@ class Cli
             puts "Here are the breweries you've bookmarked!"
             puts Brewery.bookmark_breweries_print
             end
-            recursion
+       
+      end
+
+      def exit_mission
+            puts "Hmm... It appears you are no longer interested in viewing breweries."
+            puts "Thank brew very much! Have a hoppy day!"
+            exit
       end
 end
 
