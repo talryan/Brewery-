@@ -10,6 +10,12 @@ class Cli
             puts "   ##    ##     ## ##            ##  ##   ### "
             puts "   ##    ##     ## ##           #### ##    ## "
 
+            puts "                  .~~~~. "
+            puts "                  i====i_ "
+            puts "                  |cccc|_) "
+            puts "                  |cccc| "
+            puts "                  `-==-' "
+
             puts "Your California roadtrip brewery tour!"
             Api.fetch_brewery
             first_selection
@@ -17,7 +23,7 @@ class Cli
       
       def first_selection
             puts "Would you like to tap in to our list of reccommended breweries?" 
-            puts "Enter 'yes' if you would like to proceed."
+           
             main_menu
       end
 
@@ -86,6 +92,8 @@ class Cli
                  recursion
             elsif user_input == 3
                   bookmark_breweries_prompt
+                  puts " "
+                  recursion
             elsif user_input == 4
                   exit_mission
             else 
