@@ -5,21 +5,14 @@ class Api
         url = "https://api.openbrewerydb.org/breweries?by_state=California"
         uri = URI(url)
         response = Net::HTTP.get(uri)
-        array = JSON.parse(response)
-        array
-    
-
-    # def create_brewery
-    #     self.fetch_brewery.each do|hash|
-    #         Brewery.new(hash["name"],hash["city"], hash["hash_type"],hash ["website_url"])
-    #     end
+        array_of_hashes = JSON.parse(response)
+        array_of_hashes
  
-        array.each do |array|
-         Brewery.new(array["name"],array["city"], array["brewery_type"],array["website_url"])
+        array_of_hashes.each do |brewery|
+         Brewery.new(brewery["name"],brewery["city"], brewery["brewery_type"],brewery["website_url"])
            
         end
     end
-    # end
 
 
 end

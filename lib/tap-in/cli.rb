@@ -23,12 +23,12 @@ class Cli
       
       def first_selection
             puts "Would you like to tap in to our list of reccommended breweries?" 
-           
             main_menu
       end
 
       def recursion
             puts "Would you like to check out another brewery?"
+            puts "Type 'yes' to proceed or 'no' to exit. "
             main_menu
       end
 

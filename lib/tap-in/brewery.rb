@@ -1,4 +1,3 @@
-require 'pry'
 class Brewery
 
     attr_accessor :name, :city, :brewery_type, :website_url
@@ -18,7 +17,7 @@ class Brewery
     end
 
     def self.list_of_breweries
-        Brewery.all.each_with_index do |brewery, index, city|
+        self.all.each_with_index do |brewery, index, city|
            puts "#{index+1}. #{brewery.name} - #{brewery.city}"
         end
     end

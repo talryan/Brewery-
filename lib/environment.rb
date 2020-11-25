@@ -1,9 +1,7 @@
 #Require gems
 
-require 'pry'
-require 'httparty'
-require 'json'
-require 'open-uri'
+require 'bundler'
+Bundler.require
 
 
 
